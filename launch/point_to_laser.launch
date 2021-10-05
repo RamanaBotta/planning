@@ -1,0 +1,24 @@
+
+    <launch>
+    <node pkg="tf" type="static_transform_publisher" name="laser_base"  args="0 0 0 0 0 0 zed_left_camera_frame laser_base 50" />
+
+    <!--    point cloud to laser scan-->
+    <node pkg="pointcloud_to_laserscan" name="pointcloud_to_laserscan_node" type="pointcloud_to_laserscan_node" output="screen" >
+
+        <remap from="cloud_in" to="/zed/zed_node/point_cloud/cloud_registered" />
+        <remap from="scan" to="/zed/laser_scan" />
+
+        <param name="min_height"            type="double"   value="0.25"        />
+        <param name="max_height"            type="double"   value="1.75"        />
+        <param name="target_frame"          type="string"   value="laser_base"  />
+        <param name="range_min"             type="double"   value="0.15"        />
+        <param name="range_max"             type="double"   value="15.00"       />
+        <param name="use_inf"               type="boolean"  value="true"        />
+        <param name="concurrency_level"     type="int"      value="1"           />
+
+    </node>
+
+    </launch>
+
+
+    <!-- /home/venkataprasad/catkin_ws/src/path_planning/launch/point_to_laserscan.launch -->

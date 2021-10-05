@@ -1,0 +1,16 @@
+<launch>
+<!-- rosrun tf static_transform_publisher 1 0 0.5 0 0 0 1 /base_link /zed2_camera_center 100 -->
+ <!-- <node name="base_to_camera" pkg="tf" type="static_transform_publisher" args="1 0 0.5 0 0 0 1 /base_link /zed2_camera_center 100"/> -->
+  
+  <!--- Run Move Base -->  
+  <include file="$(find planning)/launch/move_base_teb.launch">
+    <arg name="no_static_map" value="true"/>
+    <!-- <arg name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"> -->
+    <!-- <arg name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" -->
+  </include>
+  <node name="cmdvel_2_ackmsg" pkg="planning" type="cmd_to_ack.py"/>
+  
+
+  
+  
+</launch>

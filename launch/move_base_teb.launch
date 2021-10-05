@@ -57,7 +57,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
     <param name="global_costmap/height" value="100.0" if="$(arg no_static_map)"/>
   </node>
  <node pkg="rviz" type="rviz" name="rviz_odom" required="true"
-          args="-d $(find planning)/rviz/planning_odom.rviz"/>
+          args="-d $(find teb_local_planner_tutorials)/cfg/rviz_navigation.rviz"/>
 
 
 </launch>
